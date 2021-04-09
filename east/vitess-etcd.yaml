@@ -1,0 +1,11 @@
+apiVersion: planetscale.com/v2
+kind: EtcdLockserver
+metadata:
+  name: vt-etcd-east
+  namespace: voip
+---
+kind: ServiceExport
+apiVersion: net.gke.io/v1
+metadata:
+  namespace: voip
+  name: vt-etcd-east-client
