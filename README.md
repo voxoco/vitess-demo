@@ -24,3 +24,4 @@
 - [PlanetScaleDB Operator API](https://docs.planetscale.com/psdb-operator/api)
 - [Manifests and Config](https://github.com/voxoco/vitess-demo)
 - [Vitess Operator](https://github.com/vitessio/vitess/tree/master/examples/operator)
+- [Vitess Operator Federation, Architecture and Requirements](https://github.com/planetscale/vitess-operator/blob/master/docs/architecture/federation.md)
