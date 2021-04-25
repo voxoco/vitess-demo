@@ -25,3 +25,7 @@
 - [Manifests and Config](https://github.com/voxoco/vitess-demo)
 - [Vitess Operator](https://github.com/vitessio/vitess/tree/master/examples/operator)
 - [Vitess Operator Federation, Architecture and Requirements](https://github.com/planetscale/vitess-operator/blob/master/docs/architecture/federation.md)
+
+### CHANGELOG
+- 4/24/21: Added support for distributed Global Lockserver. Now the first 2 etcd instances are deployed to central while the 3rd is deployed to east.
+  This has been tested and also working with 3 clusters (each having a single Global lockserver etcd instance)

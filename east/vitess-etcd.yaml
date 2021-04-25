@@ -9,3 +9,40 @@ apiVersion: net.gke.io/v1
 metadata:
   namespace: voip
   name: vt-etcd-east-client
+---
+apiVersion: planetscale.com/v2
+kind: EtcdLockserver
+metadata:
+  name: vt-etcd-global
+  namespace: voip
+spec:
+  localMemberIndex: 3
+  createPeerService: false
+  createClientService: false
+  advertisePeerURLs:
+    - http://vt-etcd-global1.voip.svc.clusterset.local:2380
+    - http://vt-etcd-global2.voip.svc.clusterset.local:2380
+    - http://vt-etcd-global3.voip.svc.clusterset.local:2380
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vt-etcd-global3
+  namespace: voip
+spec:
+  selector:
+    etcd.planetscale.com/lockserver: vt-etcd-global
+    etcd.planetscale.com/index: "3"
+  ports:
+    - name: peer
+      port: 2380
+      protocol: TCP
+    - name: client
+      port: 2379
+      protocol: TCP
+---
+kind: ServiceExport
+apiVersion: net.gke.io/v1
+metadata:
+  namespace: voip
+  name: vt-etcd-global3

@@ -7,7 +7,7 @@ spec:
   globalLockserver:
     external:
       implementation: etcd2
-      address: http://vt-etcd-global-client.voip.svc.clusterset.local:2379
+      address: http://vt-etcd-global3.voip.svc.clusterset.local:2379
       rootPath: /primary
   images:
     vtctld: vitess/lite:v9.0.0
